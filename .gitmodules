@@ -7,3 +7,9 @@
 [submodule "tpls/cppmicroservices"]
 	path = tpls/cppmicroservices
 	url = https://github.com/ornl-qci/cppmicroservices
+[submodule "plugins/ibm/accelerator/qiskit-terra"]
+	path = plugins/ibm/accelerator/qiskit-terra
+	url = https://github.com/amccaskey/qiskit-terra
+[submodule "plugins/dwave/tpls/xacc-cmr"]
+	path = plugins/dwave/tpls/xacc-cmr
+	url = https://github.com/ornl-qci/xacc-cmr

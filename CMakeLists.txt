@@ -2,13 +2,13 @@
 # Copyright (c) 2017 UT-Battelle, LLC.
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v1.0
-# and Eclipse Distribution License v.10 which accompany this distribution. 
-# The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html 
-# and the Eclipse Distribution License is available at 
+# and Eclipse Distribution License v.10 which accompany this distribution.
+# The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
+# and the Eclipse Distribution License is available at
 # https://eclipse.org/org/documents/edl-v10.php
 #
 # Contributors:
-#   Alexander J. McCaskey - initial API and implementation 
+#   Alexander J. McCaskey - initial API and implementation
 # *******************************************************************************/
 project(xacc LANGUAGES CXX)
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
@@ -34,7 +34,7 @@ IF("${isSystemDir}" STREQUAL "-1")
 ENDIF("${isSystemDir}" STREQUAL "-1")
 
 if (NOT CMAKE_BUILD_TYPE)
-   set(CMAKE_BUILD_TYPE "Release" CACHE STRING 
+   set(CMAKE_BUILD_TYPE "Release" CACHE STRING
 	   "Choose the type of build, options are: Debug, Release, RelWithDebInfo, MinSizeRel"
 	   FORCE
       )
@@ -104,13 +104,14 @@ endif()
 
 add_subdirectory(xacc)
 add_subdirectory(quantum)
-if(PYTHON_INCLUDE_DIR) 
+if(PYTHON_INCLUDE_DIR)
    add_subdirectory(python)
 endif()
 
+add_subdirectory(plugins)
 
 # Install the config file for external projects to use
-# This is cool, users just add find_package(XACC REQUIRED) to 
+# This is cool, users just add find_package(XACC REQUIRED) to
 # their CMake builds, and pass -DXACC_DIR=/path/to/install/xacc
 # and CMake loads include paths, libs, etc
 configure_file("${CMAKE_SOURCE_DIR}/cmake/xacc-config.cmake.in" "${CMAKE_BINARY_DIR}/xacc-config.cmake" @ONLY)

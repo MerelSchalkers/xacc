@@ -2,13 +2,13 @@
 # Copyright (c) 2017 UT-Battelle, LLC.
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v1.0
-# and Eclipse Distribution License v.10 which accompany this distribution. 
-# The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html 
-# and the Eclipse Distribution License is available at 
+# and Eclipse Distribution License v.10 which accompany this distribution.
+# The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
+# and the Eclipse Distribution License is available at
 # https://eclipse.org/org/documents/edl-v10.php
 #
 # Contributors:
-#   Alexander J. McCaskey - initial API and implementation 
+#   Alexander J. McCaskey - initial API and implementation
 # *******************************************************************************/
 
 # Create a xacc config header file
@@ -24,25 +24,23 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/accelerator)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/utils)
 include_directories(${CMAKE_SOURCE_DIR}/tpls/rapidjson/include)
 
-file (GLOB HEADERS 
-		XACC.hpp 
-		ir/*.hpp 
-		program/*.hpp 
-		compiler/*.hpp 
-		accelerator/*.hpp 
-		accelerator/remote/*.hpp 
+file (GLOB HEADERS
+		XACC.hpp
+		ir/*.hpp
+		program/*.hpp
+		compiler/*.hpp
+		accelerator/*.hpp
+		accelerator/remote/*.hpp
 		utils/*.hpp
 	)
-		
-file (GLOB SRCS 
-		*.cpp 
+
+file (GLOB SRCS
+		*.cpp
         accelerator/*.cpp
-		program/*.cpp 
-		utils/*.cpp 
+		program/*.cpp
+		utils/*.cpp
 		accelerator/remote/*.cpp
 	)
-
-#link_directories(${CMAKE_INSTALL_PREFIX}/lib)
 
 add_library(xacc SHARED ${SRCS})
 add_dependencies(xacc Boost::system Boost::filesystem Boost::graph cpr)

@@ -179,7 +179,7 @@ class DecoratorFunction(ABC):
         else:
             print('Setting accelerator: ', self.accelerator.name())
             self.qpu = self.accelerator
-        
+
         ir = compiler.compile(self.src, self.qpu)
         program = Program(self.qpu, ir)
         self.compiledKernel = program.getKernels()[0]
@@ -333,15 +333,6 @@ class PyServiceRegistry(object):
         for f in pluginFiles:
             bundle_name = os.path.splitext(f)[0].strip()
             self.context.install_bundle(bundle_name).start()
-        try:
-            for servType in serviceList:
-                self.services += self.context.get_all_service_references(servType)
-        except:
-            if len(self.services) > 0:
-                pass
-        #if not self.services:
-            #print("No XACC algorithm bundles found in " + pluginDir + ".")
-            #exit(1)
 
     def get_service(self, serviceName, name):
         services = self.context.get_all_service_references(serviceName)
