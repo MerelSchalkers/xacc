@@ -152,25 +152,25 @@ TEST(PyXACCCompilerTester, checkDotDotDot) {
 
 TEST(PyXACCCompilerTester, checkDW) {
 
-  if (xacc::hasCompiler("dwave-qmi")) {
-    const std::string dwsrc = R"dwsrc(def f(buffer):
-   qmi(0,0, 1.0)
-   qmi(1,1, 2.0)
-   qmi(0,1, 3.0)
-   return
-)dwsrc";
+//   if (xacc::hasCompiler("dwave-qmi")) {
+//     const std::string dwsrc = R"dwsrc(def f(buffer):
+//    qmi(0,0, 1.0)
+//    qmi(1,1, 2.0)
+//    qmi(0,1, 3.0)
+//    return
+// )dwsrc";
 
-    auto compiler = xacc::getService<xacc::Compiler>("xacc-py");
-    auto acc = std::make_shared<FakePyAcc>();
+//     auto compiler = xacc::getService<xacc::Compiler>("xacc-py");
+//     auto acc = std::make_shared<FakePyAcc>();
 
-    auto ir = compiler->compile(dwsrc, acc);
-    auto f = ir->getKernel("f");
-    EXPECT_EQ("f", f->name());
-    EXPECT_EQ(f->nParameters(), 0);
-    EXPECT_EQ(f->nInstructions(), 3);
+//     auto ir = compiler->compile(dwsrc, acc);
+//     auto f = ir->getKernel("f");
+//     EXPECT_EQ("f", f->name());
+//     EXPECT_EQ(f->nParameters(), 0);
+//     EXPECT_EQ(f->nInstructions(), 3);
 
-    std::cout << "KERNEL:\n" << ir->getKernel("f")->toString("") << "\n";
-  }
+//     std::cout << "KERNEL:\n" << ir->getKernel("f")->toString("") << "\n";
+//   }
   // CHECK THAT WE THROW AN ERROR WITH MIXED CODE
   // CHECK WITH ANNEAL
   // CHECK WITH GENERATOR

@@ -40,7 +40,7 @@ usFunctionGetResourceSource(TARGET ${LIBRARY_NAME} OUT SRC)
 # Generate bundle initialization code
 usFunctionGenerateBundleInit(TARGET ${LIBRARY_NAME} OUT SRC)
 
-
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/optimizers)
 include_directories(${VQE_TOP_LEVEL}/task/tasks)
 include_directories(${VQE_TOP_LEVEL}/task)

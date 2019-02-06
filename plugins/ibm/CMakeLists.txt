@@ -2,6 +2,9 @@ include_directories(${CMAKE_SOURCE_DIR}/plugins/ibm/utils)
 include_directories(${CMAKE_SOURCE_DIR}/quantum/gate/ir/instructions)
 include_directories(${CMAKE_SOURCE_DIR}/quantum/gate/utils)
 include_directories(${CMAKE_SOURCE_DIR}/quantum/gate/ir)
+include_directories(${CMAKE_BINARY_DIR})
+
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/xacc-ibm-config.hpp.in" "${CMAKE_BINARY_DIR}/xacc-ibm-config.hpp")
 
 add_subdirectory(compiler)
 add_subdirectory(accelerator)
